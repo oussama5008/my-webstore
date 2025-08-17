@@ -23,30 +23,29 @@ a {
 
 /* Navbar */
 header {
-    background-color: white;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .navbar {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
     padding: 1rem 2rem;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .logo {
-    font-weight: 700;
-    font-size: 2rem;
+    font-weight: 900;
+    font-size: 1.8rem;
     cursor: default;
-}
-
-.logo {
-    color: #007bff;
+    user-select: none;
+    color: #007BFF;
 }
 
 .logo .core {
@@ -60,14 +59,16 @@ header {
 }
 
 .nav-links li a {
-    color: #222;
     font-weight: 600;
-    font-size: 1.3rem;
-    transition: color 0.3s ease-in-out;
+    font-size: 1rem;
+    padding: 0.5rem 0.7rem;
+    transition: color 0.25s ease-in-out;
+    color: #222;
 }
 
-.nav-links li a:hover {
-    color: #007bff;
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: #007BFF;
 }
 
 .nav-icons {
@@ -106,7 +107,6 @@ header {
 .cart-btn {
     background-image: url("https://cdn-icons-png.flaticon.com/512/1170/1170678.png");
 }
-
 
 /* Main content flex layout */
 .main-content {
@@ -213,24 +213,18 @@ header {
     position: relative;
     z-index: 0;
     overflow: visible;
-    /* يسمح للعناصر الموسعة بالظهور */
 }
 
-/* ضمن .products-grid استخدم: */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
 }
 
-
 .product-card {
     position: relative;
-    /* لكي تسمح z-index للعمل */
     z-index: 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
     display: flex;
     flex-direction: column;
 }
@@ -240,7 +234,6 @@ header {
     transform: scale(1.05);
     box-shadow: 0 16px 30px rgba(0, 123, 255, 0.4);
     z-index: 10;
-    /* رفع الترتيب الطبقي للظهور فوق العناصر المجاورة */
 }
 
 .product-image {
@@ -357,9 +350,8 @@ footer {
 .footer-links {
     flex: 1 1 320px;
     display: flex;
-    gap: 12rem;
+    gap: 3rem;
     flex-wrap: wrap;
-    font-size: 15px;
 }
 
 .footer-links>div h3 {
@@ -433,7 +425,7 @@ footer {
     user-select: none;
 }
 
-/* Responsive adjustments for Shop page */
+/* Responsive adjustments */
 
 /* For screens up to 1100px wide */
 @media (max-width: 1100px) {
@@ -456,8 +448,7 @@ footer {
     }
 
     .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 
     .footer-links {
@@ -470,25 +461,36 @@ footer {
 /* For screens up to 768px wide */
 @media (max-width: 768px) {
     .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
     .buy-btn {
         font-size: 0.9rem;
         padding: 0.5rem 1rem;
     }
+
+    .nav-links {
+        gap: 1rem;
+    }
 }
 
 /* For screens up to 480px wide */
 @media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .nav-links {
-        display: none;
-        /* Hide nav links for smaller screens, you can add a hamburger menu here */
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
     }
 
     .nav-icons {
         gap: 0.8rem;
+        margin-top: 0.5rem;
     }
 
     .product-card {
@@ -497,8 +499,7 @@ footer {
 
     .products-grid {
         grid-template-columns: 1fr;
-        /* عمود واحد فقط */
-        gap: 1rem;
+        /* عمود واحد */
     }
 
     .sidebar {
