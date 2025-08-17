@@ -456,7 +456,7 @@ footer {
     }
 
     .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 4, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: 1rem;
     }
 
@@ -470,7 +470,7 @@ footer {
 /* For screens up to 768px wide */
 @media (max-width: 768px) {
     .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 4, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: 1rem;
     }
 
@@ -496,7 +496,8 @@ footer {
     }
 
     .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 4, 1fr));
+        grid-template-columns: 1fr;
+        /* عمود واحد فقط */
         gap: 1rem;
     }
 
